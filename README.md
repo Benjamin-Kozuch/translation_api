@@ -13,6 +13,38 @@ Provide an API to translate any phrase from any language into english and store 
 
 # Setup
 
+#### STEP 1
+```
+git clone git@github.com:Benjamin-Kozuch/translation_api.git
+cd translation_api
+python tests.py 
+```
+(this will work with python 3.5-3.7 although you will see some SQLAlchemy deprecation warnings when running above tests using python3.7)
+
+#### STEP 2
+After cloning this repo and running it's tests, set up MySQL database container using the mysql-server:5.7 image
+(leave the following out to use the default sqlite db instead)
+```
+docker run --name mysql -d -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_DATABASE=translation_api_db -e MYSQL_USER=translation_api -e MYSQL_PASSWORD=changethis mysql/mysql-server:5.7
+```
+
+#### STEP 3
+Create an image of this repo
+```
+docker build -t translation_api:latest .
+```
+
+#### STEP 4
+Run a containter using that image
+```
+docker run --name translation_api -d -p 8080:5000 --rm --link mysql:dbserver -e DATABASE_URL=mysql+pymysql://translation_api:changethis@dbserver/translation_api_db translation_api:latest
+```
+
+If STEP 1 was left out then leave out the following from STEP 3: 
+`--link mysql:dbserver -e DATABASE_URL=mysql+pymysql://translation_api:<password>@dbserver/translation_api_db` 
+an image of this repo
+
+
 # Usage
 
 ```
@@ -44,6 +76,11 @@ http://localhost:5000/translations
   ]
 }
 ```
+
+# Live Demo
+
+
+
 
 # Translation API
 
