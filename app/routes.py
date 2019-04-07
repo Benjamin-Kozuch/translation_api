@@ -23,5 +23,7 @@ def submit_phrase(phrase):
 @app.route('/translations', defaults={'page': 1, 'num_items': 20})
 @app.route('/translations/<int:page>/<int:num_items>')
 def translations(page, num_items):
+    if num_items > 50:
+        return jsonify(dict(data='Too many items')), 401
     translations = ForeignPhrase.paginate_translations(page, num_items)
     return jsonify(dict(data=translations))
