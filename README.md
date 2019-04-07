@@ -87,6 +87,8 @@ http://ec2-18-237-78-24.us-west-2.compute.amazonaws.com/translations
 
 We are using Yandex to detect which language the phrase is in and then another Yandex api to translate the phrase to english
 
+(https://tech.yandex.com/translate/doc/dg/concepts/api-overview-docpage/)
+
 ```
 Detect language
 https://translate.yandex.net/api/v1.5/tr.json/detect
