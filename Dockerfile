@@ -13,7 +13,7 @@ COPY migrations migrations
 COPY translate.py config.py boot.sh ./
 RUN chmod +x boot.sh
 
-ENV FLASK_APP translate.py
+ENV FLASK_APP translation_api.py
 
 RUN chown -R translation_api:translation_api ./
 USER translation_api
