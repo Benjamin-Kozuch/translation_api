@@ -10,7 +10,7 @@ RUN venv/bin/pip install -r requirements.txt
 
 COPY app app
 COPY migrations migrations
-COPY translate.py config.py boot.sh ./
+COPY translation_api.py config.py boot.sh ./
 RUN chmod +x boot.sh
 
 ENV FLASK_APP translation_api.py
