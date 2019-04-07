@@ -68,7 +68,9 @@ http://localhost:5000/translations
 
 # Live Demo
 http://ec2-18-237-78-24.us-west-2.compute.amazonaws.com/translate/שלום
+
 http://ec2-18-237-78-24.us-west-2.compute.amazonaws.com/translate/hola
+
 http://ec2-18-237-78-24.us-west-2.compute.amazonaws.com/translations
 
 
