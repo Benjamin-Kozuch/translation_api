@@ -1,8 +1,8 @@
 FROM python:3.6-alpine
 
-RUN adduser -D translate_api
+RUN adduser -D translation_api
 
-WORKDIR /home/translate_api
+WORKDIR /home/translation_api
 
 COPY requirements.txt requirements.txt
 RUN python -m venv venv
@@ -15,8 +15,8 @@ RUN chmod +x boot.sh
 
 ENV FLASK_APP translate.py
 
-RUN chown -R translate_api:translate_api ./
-USER translate_api
+RUN chown -R translation_api:translation_api ./
+USER translation_api
 
 EXPOSE 5000
 
