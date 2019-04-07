@@ -1,16 +1,6 @@
 # Translation API
 Provide an API to translate any phrase from any language into english and store the translation
 
-
-# Endpoints
-
-`/translate/<phrase>`
-
-`/translations/<int:page>/<int:num_items>`
-
-`/translations` (with defaults page:1 and num_items:20)
-
-
 # Setup
 
 #### STEP 1
@@ -43,7 +33,6 @@ docker run --name translation_api -d -p 8080:5000 --rm --link mysql:dbserver -e 
 If STEP 1 was left out then leave out the following from STEP 3: 
 `--link mysql:dbserver -e DATABASE_URL=mysql+pymysql://translation_api:<password>@dbserver/translation_api_db` 
 an image of this repo
-
 
 # Usage
 
@@ -78,8 +67,18 @@ http://localhost:5000/translations
 ```
 
 # Live Demo
+http://ec2-18-237-78-24.us-west-2.compute.amazonaws.com/translate/שלום
+http://ec2-18-237-78-24.us-west-2.compute.amazonaws.com/translate/hola
+http://ec2-18-237-78-24.us-west-2.compute.amazonaws.com/translations
 
 
+# Endpoints
+
+`/translate/<phrase>`
+
+`/translations/<int:page>/<int:num_items>`
+
+`/translations` (with defaults page:1 and num_items:20)
 
 
 # Translation API
@@ -100,7 +99,6 @@ https://translate.yandex.net/api/v1.5/tr.json/translate
  & text=<text to translate>
  & lang=<translation direction>
 ```
-
 
 # iso639
 
